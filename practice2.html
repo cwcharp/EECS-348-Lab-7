@@ -1,0 +1,60 @@
+<html>
+
+    <head>
+        <h1>Practice2</h1>
+    </head>
+
+    <style>
+        #paragraph {
+            border-style: solid;
+            border-width: 10;
+            background-color: white;
+            color: black;
+            font-size: 18pt;
+        }
+    </style>
+
+    <body>
+        <p id = "paragraph">This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. <br>
+            This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. <br>
+            This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. <br>
+            This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. <br>
+            This is dummy text. This is dummy text. This is dummy text. This is dummy text. This is dummy text. <br> </p>
+        <label for="border_color">Border RGB (e.g., 255, 0, 0 for red):</label>
+        <input type="text" id="border_color" placeholder="e.g., 255, 0, 0">
+        <label for="background_color">Background RGB (e.g., 255, 0, 0 for red):</label>
+        <input type="text" id="background_color" placeholder="e.g., 255, 0, 0">
+        <label for="border_width">Border Width:</label>
+        <input type="number" id="border_width" placeholder="e.g., 2">
+        <button onclick="applyCustomization()">Apply</button>
+
+        <script>
+            function applyCustomization() {
+            var border_color = document.getElementById("border_color").value;
+            var background_color = document.getElementById("background_color").value;
+            var border_width = document.getElementById("border_width").value;
+
+            var border_rgb = border_color.split(",");
+            var red = parseInt(border_rgb[0]);
+            var green = parseInt(border_rgb[1]);
+            var blue = parseInt(border_rgb[2]);
+
+            var background_rgb = background_color.split(",");
+            var back_red = parseInt(background_rgb[0]);
+            var back_green = parseInt(background_rgb[1]);
+            var back_blue = parseInt(background_rgb[2]);
+
+            var borderColor = "rgb(" + red + "," + green + "," + blue + ")";
+            var backgroundColor = "rgb(" + back_red + "," + back_green + "," + back_blue + ")";
+            var borderWidth = parseInt(border_width);
+
+            var paragraph = document.getElementById("paragraph");
+            paragraph.style.borderColor = borderColor;
+            paragraph.style.backgroundColor = backgroundColor;
+            paragraph.style.borderWidth = borderWidth + "px";
+            }
+        </script>
+
+    </body>
+
+</html>
